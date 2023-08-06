@@ -1,0 +1,83 @@
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.headerbox {
+    background-color: rgb(37, 13, 13);
+    text-align: center;
+    color: aqua;
+    font-size: xx-large;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.main {
+    background-color: aqua;
+    display: flex;
+    justify-content: space-evenly;
+    
+    flex: 1;
+}
+
+.rock, .paper, .scissors {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+button {
+    height: 50px;
+    font-size: large;
+}
+.footer {
+    background-color: rgb(37, 13, 13);
+    color: aqua;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.div1 {
+    display: flex;
+    flex-direction: column;
+}
+ .div2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+.scorespvsc, .computerchose {
+    display: flex;
+    gap: 15px;
+}
+.result {
+    background-color: aqua;
+    margin: 10px;
+    color: black;
+    padding: 10px;
+    font-size: 40px;
+    align-self: center;
+    flex: auto;
+    
+}
+
+.div10 {
+    background-color:aqua;
+    color: black;
+    margin: 1px;
+}
+
+h2{
+    flex: auto;
+}
+.reset {
+    align-self:flex-start;
+    background-color:aqua;
+    height: fit-content;
+    font-size: 30px;
+}
+h1 {
+    margin-left: 15px;
+}
+
