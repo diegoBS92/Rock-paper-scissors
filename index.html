@@ -1,3 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper and Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="headerbox"><h1>Make your pick!</h1><button class="reset">reset</button></div>
+     <div class="main">
+        <div class="rock"><img src="img/rock.png" alt=""><button class="btnr"> choose rock</button></div>
+        <div class="paper"><img src="img/paper.png" alt=""><button class="btnp"> choose paper</button></div>
+        <div class="scissors"><img src="img/scissors.png" alt=""><button class="btns"> choose scissors</button></div>
+        </div>
+        <div class="footer"> 
+            <div class="div1">
+                <div class="computerchose"><div>Computer chose:</div> <div class="computerbox div10">None</div></div>
+                <div class="scorespvsc">Score:  <div>Player:</div> <div class="playerScore div10">00</div><div>Computer:</div> <div class="computerScore div10">00</div></div></div>
+            <div class="div2">
+                
+                <h2>result:</h2>
+                <div class="result">Make a choise!</div></div>
+        </div>
+    <script>
+        let result = document.querySelector('.result')
+        let computerbox = document.querySelector('.computerbox')
+        let playerScore = document.querySelector(".playerScore")
+        let computerScore = document.querySelector('.computerScore')
+        let reset = document.querySelector('.reset')
+
+        reset.addEventListener('click', ()=> {
+            result.textContent = 'Make a choise!'
+            playerScore.textContent = 0
+            computerScore.textContent = 0
+            computerbox.textContent = 'None'
+            
+        })
+        
+        let player = 0
+        let computer = 0
+        playerScore.textContent = player
+        computerScore.textContent = computer
+        let playRound = function(playerchoise) {
+   
+   const playerSelection = playerchoise
+   const computerSelection = getComputerChoice()
+   computerbox.textContent= computerSelection
+   console.log(playerSelection, computerSelection)
+
+   if (playerSelection == computerSelection) result.textContent = "It's a tie!"
+   else if(playerSelection == 'rock') {
+       if (computerSelection == 'scissors') {
+           result.textContent = "You Win! Rock beats Scissors"
+           player++
+           playerScore.textContent = player
+
+       }
+        else {
+            result.textContent = "You Lose! Paper beats Rock"
+            computer++
+            computerScore.textContent = computer
+        }
+   } else if (playerSelection == 'paper') {
+       if (computerSelection == 'rock') {
+        result.textContent = "You Win! Paper beats Rock"
+        player++
+        playerScore.textContent = player
+       }
+        else {
+            result.textContent = "You Lose! Scissors beats Paper"
+            computer++
+            computerScore.textContent = computer
+        }
+   } else if (playerSelection == 'scissors') {
+       if (computerSelection== 'paper') {
+        result.textContent = "You Win! Scissors beats Paper"
+        player++
+        playerScore.textContent = player
+       }
+        else {
+            result.textContent = "You Lose! Rock beats Scissors"
+            computer++
+            computerScore.textContent = computer
+        }
+       
+   }
+}
+
+        let buttonR = document.querySelector(".btnr")
+        buttonR.addEventListener("click", () => playRound('rock') )
+        let buttonP = document.querySelector(".btnp")
+        buttonP.addEventListener("click", () => playRound('paper') )
+        let buttonS = document.querySelector(".btns")
+        buttonS.addEventListener("click", () => playRound('scissors') )
+
+
+// Complete logic of game inside this function
+   // write a function getComputerChoice that return rock, paper or cissors
+   let getComputerChoice = function(){
+    let choices = ['rock', 'paper', 'scissors']
+    return choices[Math.floor((Math.random()*3))]
+}
+// write a function that play a single round (playRound) (Player vs PC) and return a string
+
+
+
+=======
 <script>// Complete logic of game inside this function
    // write a function getComputerChoice that return rock, paper or cissors
 let getComputerChoice = function(){
@@ -36,22 +145,3 @@ let playRound = function() {
         
     }
 }
-
-// write a function called game that uses playRound inside to play 5 rounds that keep track of the scores and report the winner
-let game = function() {
-    let scorePlayer = 0
-    let scoreComputer = 0 
-    for(let x = 0; x<5; x++){
-        let result = playRound()
-        if (result == "You Win! Rock beats Scissors"|| result == "You Win! Paper beats Rock" || result == "You Win! Scissors beats Paper") {scorePlayer++}
-        else if (result == "You Lose! Paper beats Rock"|| result =="You Lose! Scissors beats Paper"|| result =="You Lose! Rock beats Scissors") scoreComputer++
-
-    }
-    if (scoreComputer==scorePlayer) {
-        return "It's a Tie!"
-    }
-    else {
-        return scorePlayer>scoreComputer ? `player wins! ${scorePlayer}vs${scoreComputer}`: `computer wins! ${scoreComputer}vs${scorePlayer}`}
-
-}
-</script>
